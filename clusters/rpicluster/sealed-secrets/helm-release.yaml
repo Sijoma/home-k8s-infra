@@ -13,6 +13,5 @@ spec:
         name: sealed-secrets
       version: 1.12.x
   interval: 1h0m0s
-  releaseName: sealed-secrets
   targetNamespace: flux-system
 

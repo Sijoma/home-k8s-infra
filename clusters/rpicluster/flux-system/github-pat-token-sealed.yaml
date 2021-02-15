@@ -1,0 +1,15 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: github-pat-notification
+  namespace: flux-system
+spec:
+  encryptedData:
+    token: AgCS9ajEmAybhGFnKoQYn0mndq/FzRSvJ+76Z26eqbNcTMpSlse+BmBul1/PHw0aL0lndSYlGlhzykb0bvnM1S/tqdMC87LhqxmIZjVu4rslePpG1abm2HM5A0hgFDAANOolHys/hl/O4pNjXfVI6tShy/MWg4dDoNugiFf9f1ImU3uNckQxaixa5VQkE1D7NclneCzqsRa522PjCxTQqlaCY9P7YE7nAh6OuNXkw14/K8V9KlLWz22qAiznTlX8icjDG9+U/LWQ4t8t0RkV39EpiRFj9usZNFH5+1Z+2sGk1ui15t5UZZOb2x3b2XfzqKI5Od+3H9TBFmwRCGjnVr7gXg6z09sI//0GRCHXOAHvI6KzLSySgGux5nnNmPn1L+3XBDVndP3siZAwHn+epyIhCuIts4fHtes+U216Nj1byhtMm/l6ePg7DbwG713gVGEGSpgs988xGQFDSijUsapKF5V6FzifO4MbcbA4yOQEixZVdXs5wASRfZiDopW5CBsKr4P19GH4MtFfqwetczszJClowZu0Mojr+vX78Ggbdkn/G6UwnzliqG3M+1rtJCvPN+ME7HipDNWmNV+YwdymvIe+WmQVUXSJ9qe0wXvry3caaTQLq3B70re0ta09mrsbas7LULdH2+EAE/3wRQtiksJ+gFtvMKobR6bkD9HjAVPvP8D/I++NypCi2FthXrs3ovui+oubXY8ECXCl909+DmtFMHUBBmUKTPE1FJQ=
+  template:
+    metadata:
+      creationTimestamp: null
+      name: github-pat-notification
+      namespace: flux-system
+

@@ -1,12 +1,14 @@
+
 ---
 apiVersion: notification.toolkit.fluxcd.io/v1beta1
-kind: Alert
+kind: Provider
 metadata:
-  name: food-app-alert
+  name: food-app-provider
   namespace: flux-system
 spec:
-  providerRef:
-    name: food-app-provider
-  eventSeverity: error
-  eventSources:
-    - kind: Kustomization
+  type: github
+  username: flux
+  channel: general
+  address: https://github.com/Sijoma/food-app
+  secretRef:
+    name: github-pat-notification

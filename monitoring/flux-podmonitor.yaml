@@ -1,0 +1,17 @@
+kind: PodMonitor
+apiVersion: monitoring.coreos.com/v1
+metadata:
+  labels:
+    app.kubernetes.io/instance: flux-controller-monitor
+    app.kubernetes.io/name: flux-controller-monitor
+  name: flux-controller-monitor
+  namespace: monitoring
+spec:
+  podMetricsEndpoints:  
+  - port: "http-prom"
+  namespaceSelector:
+    matchNames:
+      - flux-system
+  selector:
+    matchLabels:
+      prometheus: "true" 

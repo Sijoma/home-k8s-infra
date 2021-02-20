@@ -6,6 +6,7 @@ resources:
 - prometheus-helm-source.yaml
 - kube-prometheus-stack-helm-release.yaml
 - flux-podmonitor.yaml
+- nginx-podmonitor.yaml
 configMapGenerator:
   - name: kube-prometheus-values
     files:

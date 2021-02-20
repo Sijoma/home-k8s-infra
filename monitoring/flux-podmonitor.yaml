@@ -4,6 +4,7 @@ metadata:
   labels:
     app.kubernetes.io/instance: flux-controller-monitor
     app.kubernetes.io/name: flux-controller-monitor
+    release: prometheus-stack
   name: flux-controller-monitor
   namespace: monitoring
 spec:

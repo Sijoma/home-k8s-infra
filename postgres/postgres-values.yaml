@@ -41,6 +41,9 @@ resources:
 commonAnnotations: 
   app: postgres
 
+service:
+  type: LoadBalancer
+
 ## Configure metrics exporter
 ##
 metrics:

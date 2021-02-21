@@ -4,7 +4,7 @@ apiVersion: v1
 metadata:
   name: postgres-volume
   labels:
-    appName: postgres-volume
+    app: postgres
 spec:
   storageClassName: local-storage
   capacity:

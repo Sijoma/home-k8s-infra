@@ -1,0 +1,86 @@
+image:
+  registry: docker.io
+  repository: postgres
+  tag: 13.2-alpine
+
+postgresqlUsername: postgres
+
+# You should try if this works 😂
+postgresqlPassword: simon
+
+## PostgreSQL password using existing secret
+## existingSecret: secret
+##
+postgresqlDatabase: initial-db
+
+postgresqlDataDir: /postgresql/data
+
+persistence:
+  enabled: true
+  mountPath: /postgresql
+
+  storageClass: "local-storage"
+  accessModes:
+    - ReadWriteOnce
+  size: 8Gi
+  selector:
+    matchLabels:
+      app: postgres
+
+primary:
+  nodeSelector:         
+    kubernetes.io/hostname: superstar-node
+
+resources:
+  requests:
+    memory: 256Mi
+    cpu: 250m
+
+## Add annotations to all the deployed resources
+##
+commonAnnotations: 
+  app: postgres
+
+## Configure metrics exporter
+##
+metrics:
+  enabled: true
+  service:
+    type: ClusterIP
+    additionalLabels:
+      release: prometheus-stack
+    loadBalancerIP: 
+  serviceMonitor:
+    enabled: true
+    additionalLabels: 
+      release: prometheus-stack
+    namespace: storage
+  prometheusRule:
+    enabled: true
+    namespace: 'storage'
+    rules:
+      - alert: HugeReplicationLag
+        expr: pg_replication_lag{service="{{ template "common.names.fullname" . }}-metrics"} / 3600 > 1
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          description: replication for {{ template "common.names.fullname" . }} PostgreSQL is lagging by {{ "{{ $value }}" }} hour(s).
+          summary: PostgreSQL replication is lagging by {{ "{{ $value }}" }} hour(s).
+
+  image:
+    registry: docker.io
+    repository: maplesond/postgres-exporter
+    tag: 0.8.0
+    pullPolicy: IfNotPresent
+
+  customMetrics:
+    pg_database:
+      query: "SELECT d.datname AS name, CASE WHEN pg_catalog.has_database_privilege(d.datname, 'CONNECT') THEN pg_catalog.pg_database_size(d.datname) ELSE 0 END AS size_bytes FROM pg_catalog.pg_database d where datname not in ('template0', 'template1', 'postgres')"
+      metrics:
+        - name:
+            usage: "LABEL"
+            description: "Name of the database"
+        - size_bytes:
+            usage: "GAUGE"
+            description: "Size of the database in bytes"

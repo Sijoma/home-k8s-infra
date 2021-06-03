@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: alertmanager-config
+  labels:
+    alertmanagerConfig: notification-channel
+spec:
+  route:
+    groupBy: ['job']
+    groupWait: 30s
+    groupInterval: 5m
+    repeatInterval: 15m
+    receiver: 'slack-notify'
+  receivers:
+  - name: slack-notify
+    webhookConfigs:
+    - url: 'https://hooks.slack.com/services/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'

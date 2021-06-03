@@ -14,4 +14,4 @@ spec:
   receivers:
   - name: slack-notify
     webhookConfigs:
-    - url: 'https://hooks.slack.com/services/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'
+    - url: 'secret'

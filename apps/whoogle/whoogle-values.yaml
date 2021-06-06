@@ -2,6 +2,7 @@ HTTPS_ONLY: true
 
 image:
   repository: benbusby/whoogle-search
+  tag: buildx-experimental
 
 ingress:
   enabled: true

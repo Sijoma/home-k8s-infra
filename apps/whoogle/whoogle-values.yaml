@@ -6,9 +6,10 @@ ingress:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt-prod
   hosts:
-    - search.simon-zengerling.de
-
-  path: /
+    - host: search.simon-zengerling.de
+      paths:
+        - path: /
+          pathType: Prefix
 
   tls:
     - secretName: whoogle-tls-secret

@@ -1,5 +1,8 @@
 HTTPS_ONLY: true
 
+image:
+  repository: benbusby/whoogle-search
+
 ingress:
   enabled: true
   annotations:

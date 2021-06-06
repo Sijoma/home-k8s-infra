@@ -1,0 +1,16 @@
+HTTPS_ONLY: true
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  hosts:
+    - search.simon-zengerling.de
+
+  path: /
+
+  tls:
+    - secretName: whoogle-tls-secret
+      hosts:
+        - search.simon-zengerling.de

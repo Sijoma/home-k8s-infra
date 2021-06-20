@@ -6,6 +6,5 @@
 ## Seal secrets so that the cluser can use them
 
 ```
-kubeseal --format=yaml --cert=pub-sealed-secrets.pem \
-< any-secret.yaml > any-secret-sealed.yaml 
+kubeseal --format=yaml --cert ./kubeseal-cert/pub-sealed-secrets.pem <monitoring/grafana-secret.yaml > grafana-secret-sealed.yaml
 ```

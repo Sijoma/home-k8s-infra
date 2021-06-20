@@ -8,6 +8,7 @@ resources:
 - flux-podmonitor.yaml
 - nginx-podmonitor.yaml
 - nginx-dashboard.yaml
+- raspberry-nodes-dashboard.yaml
 configMapGenerator:
   - name: kube-prometheus-values
     files:

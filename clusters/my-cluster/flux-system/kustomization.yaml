@@ -4,4 +4,4 @@ resources:
 - gotk-components.yaml
 - gotk-sync.yaml
 patchesStrategicMerge:
-- flux-prometheus-patch.yam
+- flux-prometheus-patch.yaml

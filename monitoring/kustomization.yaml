@@ -4,10 +4,10 @@ namespace: monitoring
 resources:
 - monitoring-namespace.yaml
 - prometheus-helm-source.yaml
-- grafana-secret-sealed.yaml
+# - grafana-secret-sealed.yaml
 - kube-prometheus-stack-helm-release.yaml
-- flux-podmonitor.yaml
-- nginx-podmonitor.yaml
+# - flux-podmonitor.yaml
+# - nginx-podmonitor.yaml
 - nginx-dashboard.yaml
 - raspberry-nodes-dashboard.yaml
 configMapGenerator:
